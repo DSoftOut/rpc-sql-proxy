@@ -20,11 +20,12 @@ trap "kill %%" EXIT
 
 # broken at ~Jan 2020 by unknown reason:
 #ADDRESS=`jq '.listenAddresses[0]' ${1}`
+#ADDRESS_UNQUOTED=`echo $ADDRESS | xargs`
 #PORT=`jq '.listenPort' ${1}`
-ADDRESS="127.0.0.1"
+
+ADDRESS=127.0.0.1
 PORT=8080
 
-ADDRESS_UNQUOTED=`echo $ADDRESS | xargs`
 
 # Start test client
 dub run pgator:test --build=unittest -- "$ADDRESS_UNQUOTED" "$PORT"
