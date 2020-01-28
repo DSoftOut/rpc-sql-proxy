@@ -143,7 +143,7 @@ int main(string[] args)
             loop(cfg, client, methods);
         }
 
-        return prepArgs.failedCount ? 2 : 0;
+        return (prepArgs.failedCount > 0 ? 2 : 0);
     }
     catch(Exception e)
     {
